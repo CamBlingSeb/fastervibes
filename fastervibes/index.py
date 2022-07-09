@@ -1,5 +1,5 @@
-import os
 from __future__ import unicode_literals
+import os
 import youtube_dl
 from flask import (
     Blueprint, current_app, redirect, render_template, request, flash, send_from_directory
