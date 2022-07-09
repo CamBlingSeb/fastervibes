@@ -22,7 +22,7 @@ def create_app(test_config=None):
         pass
 
     from . import db
-    db.init_app(app)
+    db.init_db(app)
 
     from . import auth
     app.register_blueprint(auth.bp)
