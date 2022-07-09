@@ -1,0 +1,14 @@
+{% extends 'base.html.j2'%}
+
+{% block header %}
+    <h1>{% block title %}YouTube Audio Downloader{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+  <label for="url">Youtube Url</label>
+  <input name="url" id="url" placeholder='Paste YouTube URL to convert it to mp3' required>
+  
+  <input type="submit" value="Convert">
+</form>
+{% endblock %}

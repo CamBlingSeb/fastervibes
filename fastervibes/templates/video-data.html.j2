@@ -1,0 +1,16 @@
+{% extends 'base.html.j2'%}
+
+{% block header %}
+    <h1>{% block title %}YouTube Audio Downloader{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<section>
+    <img class="thumbnail" src="{{thumbnail['url']}}" width="{{thumbnail['width']}}" height="{{thumbnail['height']}}"/>
+    <h2>{{videoTitle}}</h2>
+</section>
+<form method='post' action='/download'>
+    <input type="text" name="url" id="url" value="{{url}}" class="hidden-url-field"/>
+    <input type='submit' value="Download"/>
+</form>
+{% endblock %}

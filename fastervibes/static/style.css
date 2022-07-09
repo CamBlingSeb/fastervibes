@@ -1,0 +1,7 @@
+.thumbnail {
+    object-fit: contain;
+}
+
+.hidden-url-field {
+    display: none;
+}
