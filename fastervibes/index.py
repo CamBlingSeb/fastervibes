@@ -3,7 +3,7 @@ import youtube_dl
 from flask import (
     Blueprint, redirect, render_template, request, flash
 )
-import ffmpeg
+# import ffmpeg
 
 from fastervibes.db import get_db
 
