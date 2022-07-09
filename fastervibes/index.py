@@ -1,7 +1,8 @@
+import os
 from __future__ import unicode_literals
 import youtube_dl
 from flask import (
-    Blueprint, redirect, render_template, request, flash, send_from_directory
+    Blueprint, current_app, redirect, render_template, request, flash, send_from_directory
 )
 # import ffmpeg
 
@@ -90,7 +91,7 @@ def convert():
     url = request.form['url']
     ydl_opts = {
         'format': 'bestaudio/best',
-        'outtmpl': './media/%(title)s.%(ext)s',
+        'outtmpl': os.path.join(current_app.root_path, 'media/%(title)s.%(ext)s'),
         # 'postprocessors': [{
         #     'key': 'FFmpegExtractAudio',
         #     'preferredcodec': 'mp3',
@@ -113,4 +114,4 @@ def convert():
 @bp.post('/download')
 def download():
     filename = request.form['filename']
-    return send_from_directory('~/media', filename, as_attachment=True)
+    return send_from_directory(os.path.join(current_app.root_path),'media', filename, as_attachment=True)
