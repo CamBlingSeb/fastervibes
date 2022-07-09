@@ -9,8 +9,8 @@
     <img class="thumbnail" src="{{thumbnail['url']}}" width="{{thumbnail['width']}}" height="{{thumbnail['height']}}"/>
     <h2>{{videoTitle}}</h2>
 </section>
-<form method='post' action='/download'>
+<form method='post' action='/convert'>
     <input type="text" name="url" id="url" value="{{url}}" class="hidden-url-field"/>
-    <input type='submit' value="Download"/>
+    <input type='submit' value="Convert"/>
 </form>
 {% endblock %}

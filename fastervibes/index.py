@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 import youtube_dl
 from flask import (
-    Blueprint, redirect, render_template, request, flash
+    Blueprint, redirect, render_template, request, flash, send_from_directory
 )
 # import ffmpeg
 
@@ -85,8 +85,8 @@ async def displayVideoInfo(info):
 
 
 
-@bp.post('/download')
-def download():
+@bp.post('/convert')
+def convert():
     url = request.form['url']
     ydl_opts = {
         'format': 'bestaudio/best',
@@ -104,5 +104,13 @@ def download():
         print('Starting Request')
         ydl.download([url])
 
-    return 'Success'
+    return render_template(
+        'download.html.j2',
+        filename='Energy (Zero T Remix).webm'
+    )
 
+
+@bp.post('/download')
+def download():
+    filename = request.form['filename']
+    return send_from_directory('~/media', filename, as_attachment=True)
