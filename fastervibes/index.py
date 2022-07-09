@@ -92,11 +92,11 @@ def convert():
     ydl_opts = {
         'format': 'bestaudio/best',
         'outtmpl': os.path.join(current_app.root_path, 'media/%(title)s.%(ext)s'),
-        # 'postprocessors': [{
-        #     'key': 'FFmpegExtractAudio',
-        #     'preferredcodec': 'mp3',
-        #     'preferredquality': '192',
-        # }],
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',
+        }],
         'nocheckcertificate': True,
         'logger': MyLogger()
     }
