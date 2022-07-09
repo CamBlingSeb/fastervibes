@@ -113,5 +113,9 @@ def convert():
 
 @bp.post('/download')
 def download():
+    print('Attempting Download...')
     filename = request.form['filename']
-    return send_from_directory(os.path.join(current_app.root_path),'media', filename, as_attachment=True)
+    print('Filename:', filename)
+    mediapath = os.path.join(current_app.root_path,'media')
+    print('Media Path: ', mediapath)
+    return send_from_directory(mediapath, filename, as_attachment=True)
