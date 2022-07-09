@@ -1,4 +1,4 @@
-include flaskr/schema.sql
-graft flaskr/static
-graft flaskr/templates
+include fastervibes/schema.sql
+graft fastervibes/static
+graft fastervibes/templates
 global-exclude *.pyc
