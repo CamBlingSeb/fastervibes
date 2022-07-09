@@ -6,7 +6,6 @@ def create_app(test_config=None):
     # create and configure app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        SECRET_KEY='j7nVKeknud8cyi6gmAJHm4uMo2eGsXvuhzLWDBufyHE82s',
         DATABASE=os.path.join(app.instance_path, 'fastervibes.sqlite'),
     )
     if test_config is None:
