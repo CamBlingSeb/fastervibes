@@ -115,7 +115,5 @@ def convert():
 def download():
     print('Attempting Download...')
     filename = request.form['filename']
-    print('Filename:', filename)
     mediapath = os.path.join(current_app.root_path,'media')
-    print('Media Path: ', mediapath)
     return send_from_directory(mediapath, filename, as_attachment=True)
