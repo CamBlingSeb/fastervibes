@@ -21,7 +21,7 @@ def index():
         elif accessCode != '1234':
             error = 'Access Denied'
         else:
-            return redirect(url_for("dash"))
+            return redirect(url_for("dash.dash"))
         
         flash(error)
 
