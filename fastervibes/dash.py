@@ -82,6 +82,9 @@ def convert():
             'key': 'FFmpegExtractAudio',
             'preferredcodec': fileFormat,
             'preferredquality': '192',
+        },
+        {
+            'key': 'FFmpegMetadata'
         }],
         'nocheckcertificate': True,
         'logger': MyLogger()
