@@ -72,12 +72,14 @@ def convert():
     url = request.form['url']
     title = request.form['title']
     fileFormat = request.form['output-format']
+    
     ydl_opts = {
         'format': 'bestaudio/best',
         'outtmpl': os.path.join(current_app.root_path, 'media/%(title)s.%(ext)s'),
+        'addmetadata': True,
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
+            'preferredcodec': fileFormat,
             'preferredquality': '192',
         }],
         'nocheckcertificate': True,
