@@ -11,6 +11,11 @@
 </section>
 <form method='post' action='/convert'>
     <input type="text" name="url" id="url" value="{{url}}" class="hidden-url-field"/>
+    <input type="text" name="title" id="title" value="{{videoTitle}}" class="hidden-url-field"/>
+    <label for="output-format">Choose Desired Audio Format:</label>
+    <select name="output-format" id="output-format">
+        <option value="mp3" selected>MP3</option
+    </select>
     <input type='submit' value="Convert"/>
 </form>
 {% endblock %}

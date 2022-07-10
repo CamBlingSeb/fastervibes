@@ -31,7 +31,7 @@ async def index():
             if info is None:
                 pass
             else:
-                print('Thumbnails: ', info['thumbnails'])
+                # print('Thumbnails: ', info['thumbnails'])
                 return render_template(
                     'video-data.html.j2',
                     url=url, 
@@ -50,7 +50,6 @@ async def getVideoInfo(url):
         pass
     else:
         return info
-        # await displayVideoInfo(info)
     
 async def fetchVideoInfo(url):
     ydl_opts = {
@@ -71,24 +70,12 @@ async def fetchVideoInfo(url):
             print('Name: ', info['title'])
             return info
 
-            
-async def displayVideoInfo(info):
-    print('Rendering Template')
-    render_template(
-        'video-data.html.j2', 
-        videoTitle=info['title'], 
-        thumbnailUrl=info['thumbnails'][0]['url']
-    )
-
-
-#with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-#    ydl.download([])
-
-
 
 @bp.post('/convert')
 def convert():
     url = request.form['url']
+    title = request.form['title']
+    fileFormat = request.form['output-format']
     ydl_opts = {
         'format': 'bestaudio/best',
         'outtmpl': os.path.join(current_app.root_path, 'media/%(title)s.%(ext)s'),
@@ -107,7 +94,7 @@ def convert():
 
     return render_template(
         'download.html.j2',
-        filename='Energy (Zero T Remix).mp3'
+        filename="%s.%s" % (title, fileFormat)
     )
 
 
