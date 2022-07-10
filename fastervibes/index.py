@@ -40,7 +40,7 @@ async def index():
                 )
         flash(error)
 
-    return render_template('home.html.j2')
+    return render_template('index.html.j2')
     
 
 
