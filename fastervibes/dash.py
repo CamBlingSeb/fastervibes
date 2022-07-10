@@ -72,6 +72,18 @@ def convert():
     url = request.form['url']
     title = request.form['title']
     fileFormat = request.form['output-format']
+
+    def my_hook(d):
+        if d['status'] == 'downloading':
+            return render_template('downloading.html.j2',
+                downloadedBytes=d['downloaded_bytes'],
+                totalBytes=d['total_bytes'],
+                eta=d['eta'],
+                elapsed=d['elapsed'],
+                speed=d['speed']
+            )
+        elif d['status'] == 'finished':
+            print('Done Downloading to Server... now Converting')
     
     ydl_opts = {
         'format': 'bestaudio/best',
@@ -87,7 +99,8 @@ def convert():
             'key': 'FFmpegMetadata'
         }],
         'nocheckcertificate': True,
-        'logger': MyLogger()
+        'logger': MyLogger(),
+        'progress_hooks': [my_hook]
     }
 
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:

@@ -1,0 +1,25 @@
+{% extends 'base.html.j2'%}
+
+{% block content %}
+<main>
+    <div class='container'>
+        <h1 class='prime-text'>Downloading...</h1>
+        <div class="row">
+            <div class="col">
+                <h3 class="prime-text">Progress:</h3>
+                <span class="prime-text">{{downloadedBytes}} / {{totalBytes}} Bytes</span>
+            </div>
+            <div class="col">
+                <h3 class="prime-text">Estimated Time:</h3>
+                <span class="prime-text">{{eta}} s</span>
+                <h3 class="prime-text">Time Elapsed:</h3>
+                <span class="prime-text">{{elapsed}} s</span>
+            </div>
+            <div class="col">
+                <h3 class="prime-text">Download Speed:</h3>
+                <span class="prime-text">{{speed}} Bytes/s</span>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
