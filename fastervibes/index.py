@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from flask import (
-    Blueprint, redirect, url_for, render_template, request, flash
+    Blueprint, redirect, url_for, render_template, request, flash   
 )
 
 from fastervibes.db import get_db
