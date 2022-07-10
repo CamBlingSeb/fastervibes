@@ -1,7 +1,28 @@
+html,
+body {
+    /* background: radial-gradient(circle at top left, #14252F, #270628, #3F0542); */
+    /* background: radial-gradient(circle at top left, #650000, #490000, #2f0000, #200b0b, #0f0606); */
+    background: radial-gradient(circle at top left, #5c162e, #3c162f, #191528, #110e1b);
+    height: 100vh;
+}
+
 .thumbnail {
     object-fit: contain;
 }
 
 .hidden-url-field {
     display: none;
+}
+
+.access-form {
+    max-width: 330px;
+}
+
+.prime-text {
+    color: #00BFB2;
+}
+
+.prime-bg {
+    /* background-color: #CBEFB6; */
+    background-color: #44FFD2;
 }

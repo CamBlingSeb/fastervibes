@@ -1,13 +1,17 @@
 {% extends 'base.html.j2'%}
 
-{% block header %}
-    <h1>{% block title %}FasterVibes{% endblock %}</h1>
-{% endblock %}
-
 {% block content %}
-  <form method="post">
-    <label>Enter Access Code</label>
-    <input type='password' name="access-code" id="access-code" placeholder='Private Access Code' required>
-    <input type="submit" value="Submit">
-  </form>
+  <main class="access-form w-100 m-auto">
+    <form method="post">
+      <h1 class="h3 mb-3 fw-normal text-light">Enter Access Code</h1>
+      <div class="form-floating mb-3">
+          <input class="form-control" type='password' name="access-code" id="access-code" placeholder='Access Code' required>
+          <label for="access-code">Access Code</label>
+      </div>
+      
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+      <p class="mt-5 mb-3 text-white-50">© 2022</p>
+    </form>
+  </main>
+  
 {% endblock %}

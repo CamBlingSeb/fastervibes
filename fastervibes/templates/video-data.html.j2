@@ -1,21 +1,38 @@
 {% extends 'base.html.j2'%}
 
 {% block header %}
-    <h1>{% block title %}YouTube Audio Downloader{% endblock %}</h1>
+    <h1 class="prime-text">{% block title %}YouTube Audio Downloader{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-<section>
-    <img class="thumbnail" src="{{thumbnail['url']}}" width="{{thumbnail['width']}}" height="{{thumbnail['height']}}"/>
-    <h2>{{videoTitle}}</h2>
-</section>
-<form method='post' action='/convert'>
-    <input type="text" name="url" id="url" value="{{url}}" class="hidden-url-field"/>
-    <input type="text" name="title" id="title" value="{{videoTitle}}" class="hidden-url-field"/>
-    <label for="output-format">Choose Desired Audio Format:</label>
-    <select name="output-format" id="output-format">
-        <option value="mp3" selected>MP3</option
-    </select>
-    <input type='submit' value="Convert"/>
-</form>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img class="float-start rounded border-dark" src="{{thumbnail['url']}}" width="{{thumbnail['width']}}" height="{{thumbnail['height']}}"/>
+            </div>
+            <div class="col">
+                <h2 class="prime-text">{{videoTitle}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <form method='post' action='/convert'>
+                <input type="text" name="url" id="url" value="{{url}}" class="hidden-url-field"/>
+                <input type="text" name="title" id="title" value="{{videoTitle}}" class="hidden-url-field"/>
+                <label class="prime-text" for="output-format">Choose Desired Audio Format:</label>
+                <select class="form-select form-select-lg mb-3" name="output-format" id="output-format">
+                    <option value="mp3" selected>MP3</option>
+                    <option value="flac">FLAC</option>
+                    <option value="wav">WAV</option>
+                </select>
+                <button 
+                    class="w-100 btn btn-lg btn-primary" 
+                    style="--bs-btn-bg: #00BFB2; --bs-btn-color: black;"
+                    type="submit"
+                >Convert</button>
+            </form>
+        </div>
+    </div>
+</main>
+
 {% endblock %}
