@@ -75,6 +75,7 @@ def convert():
     
     ydl_opts = {
         'format': 'bestaudio/best',
+        'extractaudio': True,
         'outtmpl': os.path.join(current_app.root_path, 'media/%(title)s.%(ext)s'),
         'addmetadata': True,
         'postprocessors': [{
